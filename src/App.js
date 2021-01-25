@@ -1,7 +1,7 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import './App.scss';
 
-import { Canvas, useFrame } from "react-three-fiber";
+import { Canvas } from "react-three-fiber";
 
 import Sphere from './Components/Sphere';
 
@@ -9,9 +9,11 @@ function App() {
 
   return (
     <>
-      <Canvas colorManagement camera={{position: [-5, 2, 10], fov: 50}}>
+      <Canvas colorManagement camera={{position: [-2, 2, 10], fov: 50}}>
         <ambientLight intensity={0.7} />
-        <Sphere />
+        <Sphere position={[0, 0, 0]} args={[1, 10, 10]} color='yellow' />
+        <Sphere position={[-4, 0, 0]} args={[1, 10, 10]} color='blue' />
+        <Sphere position={[-6, 0, 0]} args={[1, 10, 10]} color="grey"/>
       </Canvas>
     </>
   );
