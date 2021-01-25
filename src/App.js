@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.scss';
+
+import { Canvas } from "react-three-fiber";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Canvas>
+        <mesh>
+          <circleBufferGeometry attach='geometry' args={[1, 100]} />
+          <meshStandardMaterial attach='material' />
+        </mesh>
+      </Canvas>
+    </>
   );
 }
 
 export default App;
+
+
+// Mesh: 
+// Class representing triangular polygon mesh based ObjectSpaceNormalMap
+
+// BufferGeometry: 
+// An Efficient representation of mesh, line, or point geometry. 
+// Includes vertex positions, face indices, normals, colors, UVs, 
+// and custom attributes within buffers, reducing the cost of passing all this data to the GPU
+
+// Material: 
+// Materials describe the appearance of ObjectSpaceNormalMap. They are defined in a (mostly) renderer-independent way,
+// so you don't have to rewrite materials if you decide to use a different renderer.
