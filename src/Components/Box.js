@@ -1,0 +1,14 @@
+import React, {useRef} from 'react';
+
+const Box = ({position, args}) => {
+    const mesh = useRef(null);
+    return (
+        <mesh castShadow position={position} ref={mesh}>
+            <boxBufferGeometry attach="geometry" args={args}/>
+            <meshStandardMaterial attach="material" color="blue"/>
+        </mesh>
+    );
+
+}
+
+export default Box;

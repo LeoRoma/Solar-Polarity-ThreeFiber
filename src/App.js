@@ -3,24 +3,49 @@ import './App.scss';
 
 import { Canvas } from "react-three-fiber";
 
+import Box from './Components/Box';
 import Sphere from './Components/Sphere';
 
 function App() {
 
   return (
     <>
-      <Canvas colorManagement camera={{position: [-2, 2, 10], fov: 50}}>
+      <Canvas shadowMap colorManagement camera={{ position: [0, 10, 70], fov: 10 }}>
         <ambientLight intensity={0.7} />
-        <Sphere position={[0, 0, 0]} args={[1, 10, 10]} color='yellow' />
+        <directionalLight
+          castShadow
+          position={[0, 10, 0]}
+          intensity={0.5}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-far={50}
+          shadow-camera-left={-10}
+          shadow-camera-right={10}
+          shadow-camera-top={10}
+          shadow-camera-bottom={-10}
+        />
+        <pointLight position={[70, 0, 0]} intensity={0.5} />
+
+        <group>
+          <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]}>
+            <planeBufferGeometry attach='geometry' args={[100, 100]} />
+            <shadowMaterial attach='material' />
+          </mesh>
+        </group>
+        {/* <Sphere position={[0, 0, 0]} args={[1, 10, 10]} color='yellow' />
         <Sphere position={[-4, 0, 0]} args={[1, 10, 10]} color='blue' />
-        <Sphere position={[-6, 0, 0]} args={[1, 10, 10]} color="grey"/>
+        <Sphere position={[-8, 0, 0]} args={[1, 10, 10]} color="grey"/> */}
+
+        <Box position={[0, 0, 0]} args={[1, 1, 3]} />
+        <Box position={[-4, 0, 0]} args={[1, 1, 3]} />
+        <Box position={[-8, 0, 0]} args={[1, 1, 3]} />
       </Canvas>
     </>
   );
 }
 
 export default App;
-
+// video stopped at 30:42
 
 // Mesh: 
 // Class representing triangular polygon mesh based ObjectSpaceNormalMap
