@@ -6,16 +6,17 @@ import {softShadows, MeshWobbleMaterial, OrbitControls} from 'drei';
 
 import Box from './Components/Box';
 import Sphere from './Components/Sphere';
+import Skybox from './Components/Skybox';
 
 function App() {
 
   return (
     <>
-      <Canvas shadowMap colorManagement camera={{ position: [0, 10, 70], fov: 10 }}>
+      <Canvas>
         <ambientLight intensity={0.7} />
         <directionalLight
           castShadow
-          position={[0, 10, 0]}
+          position={[70, 0, 0]}
           intensity={0.5}
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
@@ -25,7 +26,7 @@ function App() {
           shadow-camera-top={10}
           shadow-camera-bottom={-10}
         />
-        <pointLight position={[70, 0, 0]} intensity={0.5} />
+        {/* <pointLight position={[70, 0, 0]} intensity={0.5} /> */}
 
         <group>
           <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]}>
@@ -33,14 +34,15 @@ function App() {
             <shadowMaterial attach='material' />
           </mesh>
         </group>
-        <Sphere position={[0, 0, 0]} args={[1, 5, 1]} color='yellow' />
+        <Sphere position={[0, 0, 0]} args={[1, 8, 8]} color='yellow' />
         <Sphere position={[-4, 0, 0]} args={[1, 5, 1]} color='blue' />
         <Sphere position={[-8, 0, 0]} args={[1, 5, 1]} color="grey"/>
 
         {/* <Box position={[0, 0, 0]} args={[1, 1, 3]} />
         <Box position={[-4, 0, 0]} args={[1, 1, 3]} />
         <Box position={[-8, 0, 0]} args={[1, 1, 3]} /> */}
-        <OrbitControls />
+        <Skybox />
+        <OrbitControls autoRotate />
       </Canvas>
     </>
   );

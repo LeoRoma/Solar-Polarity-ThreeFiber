@@ -18,7 +18,12 @@ const Sphere = ({ position, args, color }) => {
             position={position}
             ref={mesh}>
             <sphereBufferGeometry attach='geometry' args={args} />
-            <meshStandardMaterial attach='material' color={color} />
+            <meshStandardMaterial
+                attach='material'
+                color={color}
+                metalness={0.3}
+                roughness={0.3}
+            />
 
         </animated.mesh>
     )
