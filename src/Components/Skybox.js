@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import {useThree} from 'react-three-fiber';
 import {CubeTextureLoader} from 'three';
 
@@ -7,11 +7,11 @@ const Skybox = () => {
     const loader = new CubeTextureLoader();
     const texture = loader.load([
         "/1.jpg", 
+        "/space.jpg",
         "/1.jpg",
-        "/3.jpg",
-        "/4.jpg",
-        "/5.jpg",
-        "/6.jpg"
+        "/1.jpg",
+        "/1.jpg",
+        "/1.jpg"
     ]);
 
     scene.background = texture;

@@ -5,7 +5,8 @@ const Box = ({position, args}) => {
     return (
         <mesh castShadow position={position} ref={mesh}>
             <boxBufferGeometry attach="geometry" args={args}/>
-            <meshStandardMaterial attach="material" color="blue"/>
+            <meshStandardMaterial attach="material" color="blue"
+             roughness={0.5} metalness={0.5}/>
         </mesh>
     );
 

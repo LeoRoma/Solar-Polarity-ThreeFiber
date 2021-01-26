@@ -2,9 +2,9 @@ import React from 'react';
 import './App.scss';
 
 import { Canvas } from "react-three-fiber";
-import {softShadows, MeshWobbleMaterial, OrbitControls} from 'drei';
+import { OrbitControls } from 'drei';
 
-import Box from './Components/Box';
+// import Box from './Components/Box';
 import Sphere from './Components/Sphere';
 import Skybox from './Components/Skybox';
 
@@ -12,9 +12,13 @@ function App() {
 
   return (
     <>
-      <Canvas>
+      <Canvas
+        // shadowMap
+        // colorManagement
+        camera={{ position: [0, 0, 1000], fov: 1000 }}
+      >
         <ambientLight intensity={0.7} />
-        <directionalLight
+        {/* <directionalLight
           castShadow
           position={[70, 0, 0]}
           intensity={0.5}
@@ -25,24 +29,38 @@ function App() {
           shadow-camera-right={10}
           shadow-camera-top={10}
           shadow-camera-bottom={-10}
-        />
+        /> */}
         {/* <pointLight position={[70, 0, 0]} intensity={0.5} /> */}
 
         <group>
-          <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]}>
+          {/* <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]}>
             <planeBufferGeometry attach='geometry' args={[100, 100]} />
             <shadowMaterial attach='material' />
-          </mesh>
+          </mesh> */}
         </group>
-        <Sphere position={[0, 0, 0]} args={[1, 8, 8]} color='yellow' />
-        <Sphere position={[-4, 0, 0]} args={[1, 5, 1]} color='blue' />
-        <Sphere position={[-8, 0, 0]} args={[1, 5, 1]} color="grey"/>
+        <Sphere position={[0, 0, 0]} args={[50, 8, 8]} color='yellow' />
+        {/* mercury */}
+        <Sphere position={[-200, 0, 0]} args={[4, 5, 1]} color='orange' /> 
+        {/* venus */}
+        <Sphere position={[-400, 0, 0]} args={[1, 5, 1]} color="grey" />
+        {/* earth */}
+        <Sphere position={[-600, 0, 0]} args={[10, 8, 8]} color='blue' />
+        {/* mars */}
+        <Sphere position={[-800, 0, 0]} args={[5, 5, 1]} color='red' />
+        {/* jupiter  */}
+        <Sphere position={[-1000, 0, 0]} args={[100, 5, 1]} color="brown" />
+        {/* saturn */}
+        <Sphere position={[-1200, 0, 0]} args={[90, 8, 8]} color='yellow' />
+        {/* uranus */}
+        <Sphere position={[-1400, 0, 0]} args={[40, 5, 1]} color='blue' />
+        {/* neptune  */}
+        <Sphere position={[-1600, 0, 0]} args={[38, 5, 1]} color="blue" />
 
         {/* <Box position={[0, 0, 0]} args={[1, 1, 3]} />
         <Box position={[-4, 0, 0]} args={[1, 1, 3]} />
         <Box position={[-8, 0, 0]} args={[1, 1, 3]} /> */}
         <Skybox />
-        <OrbitControls autoRotate />
+        <OrbitControls />
       </Canvas>
     </>
   );
