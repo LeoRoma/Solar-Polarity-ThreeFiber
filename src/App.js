@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 
 import { Canvas } from "react-three-fiber";
+import {softShadows, MeshWobbleMaterial, OrbitControls} from 'drei';
 
 import Box from './Components/Box';
 import Sphere from './Components/Sphere';
@@ -32,13 +33,14 @@ function App() {
             <shadowMaterial attach='material' />
           </mesh>
         </group>
-        {/* <Sphere position={[0, 0, 0]} args={[1, 10, 10]} color='yellow' />
-        <Sphere position={[-4, 0, 0]} args={[1, 10, 10]} color='blue' />
-        <Sphere position={[-8, 0, 0]} args={[1, 10, 10]} color="grey"/> */}
+        <Sphere position={[0, 0, 0]} args={[1, 5, 1]} color='yellow' />
+        <Sphere position={[-4, 0, 0]} args={[1, 5, 1]} color='blue' />
+        <Sphere position={[-8, 0, 0]} args={[1, 5, 1]} color="grey"/>
 
-        <Box position={[0, 0, 0]} args={[1, 1, 3]} />
+        {/* <Box position={[0, 0, 0]} args={[1, 1, 3]} />
         <Box position={[-4, 0, 0]} args={[1, 1, 3]} />
-        <Box position={[-8, 0, 0]} args={[1, 1, 3]} />
+        <Box position={[-8, 0, 0]} args={[1, 1, 3]} /> */}
+        <OrbitControls />
       </Canvas>
     </>
   );
