@@ -38,29 +38,29 @@ function App() {
             <shadowMaterial attach='material' />
           </mesh> */}
         </group>
-        <Sphere position={[0, 0, 0]} args={[50, 8, 8]} color='yellow' />
+        <Sphere position={[0, 0, 0]} args={[2, 8, 8]} color='yellow' />
         {/* mercury */}
-        <Sphere position={[-200, 0, 0]} args={[4, 5, 1]} color='orange' /> 
+        <Sphere position={[-10, 0, 0]} args={[2, 5, 1]} color='orange' /> 
         {/* venus */}
-        <Sphere position={[-400, 0, 0]} args={[1, 5, 1]} color="grey" />
+        <Sphere position={[-20, 0, 0]} args={[2, 5, 1]} color="grey" />
         {/* earth */}
-        <Sphere position={[-600, 0, 0]} args={[10, 8, 8]} color='blue' />
+        <Sphere position={[-30, 0, 0]} args={[2, 8, 8]} color='blue' />
         {/* mars */}
-        <Sphere position={[-800, 0, 0]} args={[5, 5, 1]} color='red' />
+        <Sphere position={[-40, 0, 0]} args={[2, 5, 1]} color='red' />
         {/* jupiter  */}
-        <Sphere position={[-1000, 0, 0]} args={[100, 5, 1]} color="brown" />
+        <Sphere position={[-50, 0, 0]} args={[2, 5, 1]} color="brown" />
         {/* saturn */}
-        <Sphere position={[-1200, 0, 0]} args={[90, 8, 8]} color='yellow' />
+        <Sphere position={[-60, 0, 0]} args={[2, 8, 8]} color='yellow' />
         {/* uranus */}
-        <Sphere position={[-1400, 0, 0]} args={[40, 5, 1]} color='blue' />
+        <Sphere position={[-70, 0, 0]} args={[2, 5, 1]} color='blue' />
         {/* neptune  */}
-        <Sphere position={[-1600, 0, 0]} args={[38, 5, 1]} color="blue" />
+        <Sphere position={[-80, 0, 0]} args={[2, 5, 1]} color="blue" />
 
         {/* <Box position={[0, 0, 0]} args={[1, 1, 3]} />
         <Box position={[-4, 0, 0]} args={[1, 1, 3]} />
         <Box position={[-8, 0, 0]} args={[1, 1, 3]} /> */}
         <Skybox />
-        <OrbitControls />
+        <OrbitControls autoRotate />
       </Canvas>
     </>
   );
